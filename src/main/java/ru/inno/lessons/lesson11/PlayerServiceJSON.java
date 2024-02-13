@@ -1,53 +1,72 @@
 package ru.inno.lessons.lesson11;
 
-import java.util.ArrayList;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Collection;
+import java.util.NoSuchElementException;
 
 
 public class PlayerServiceJSON implements PlayerService {
 
-    private int ID = 0;
+    private final Players PLAYERS = new Players();
 
-    private final Collection<Player> PLAYERS = new ArrayList<>();
+    private final Path playersFilePath = Path.of("src/main/java/ru/inno/lessons/lesson11/playersFile.json");
+
+    private int ID = PLAYERS.getPlayers().get(PLAYERS.getPlayers().size() - 1).getId();
 
     @Override
     public Player getPlayerById(int id) {
-        for (Player player : PLAYERS) {
-            if (player.getId() == id){
+        for (Player player : PLAYERS.getPlayers()) {
+            if (player.getId() == id) {
                 return player;
             }
-        } throw new RuntimeException("Игрока не существует");
+        }
+        throw new NoSuchElementException("Игрока не существует c ID: " + id);
     }
 
     @Override
     public Collection<Player> getPlayers() {
-        return PLAYERS;
+        return PLAYERS.getPlayers();
     }
 
     @Override
-    public int createPlayer(String nickname) {
+    public int createPlayer(String nickname) throws IOException {
         ID++;
-        getPlayers().add(new Player(ID, nickname, 0, true));
+        PLAYERS.getPlayers().add(new Player(ID, nickname, 0, true));
+        saveJsonFile();
         return ID;
     }
 
     @Override
-    public Player deletePlayer(int id) {
-        for (Player player : PLAYERS) {
-            if (player.getId() == id){
-                PLAYERS.remove(player);
+    public Player deletePlayer(int id) throws IOException {
+        for (Player player : PLAYERS.getPlayers()) {
+            if (player.getId() == id) {
+                PLAYERS.getPlayers().remove(player);
+                saveJsonFile();
                 return player;
             }
-        } throw new RuntimeException("Игрока не существует");
+        }
+        throw new NoSuchElementException("Игрока не существует c ID: " + id);
     }
 
     @Override
-    public int addPoints(int playerId, int points) {
-        for (Player player : PLAYERS) {
-            if (player.getId() == playerId){
-               player.setPoints(player.getPoints() + points);
-               return player.getPoints();
+    public int addPoints(int playerId, int points) throws IOException {
+        for (Player player : PLAYERS.getPlayers()) {
+            if (player.getId() == playerId) {
+                player.setPoints(player.getPoints() + points);
+                saveJsonFile();
+                return player.getPoints();
             }
-        } throw new RuntimeException("Игрока не существует");
+        }
+        throw new NoSuchElementException("Игрока не существует c ID: " + playerId);
+    }
+
+    private void saveJsonFile() throws IOException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(playersFilePath.toFile(), PLAYERS.getPlayers());
+
     }
 }

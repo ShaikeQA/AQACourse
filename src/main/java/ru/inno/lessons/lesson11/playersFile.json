@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "nick": "ADMIN",
+    "points": 9999,
+    "online": true
+  },
+  {
+    "id": 1,
+    "nick": "WinMaster_11",
+    "points": 100,
+    "online": true
+  },
+  {
+    "id": 2,
+    "nick": "WinMaster_1",
+    "points": 0,
+    "online": true
+  }
+]
