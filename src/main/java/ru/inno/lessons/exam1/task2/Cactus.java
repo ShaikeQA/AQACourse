@@ -1,7 +1,5 @@
 package ru.inno.lessons.exam1.task2;
 
-import lombok.*;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;

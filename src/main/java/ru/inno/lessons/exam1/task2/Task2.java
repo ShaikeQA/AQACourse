@@ -1,9 +1,7 @@
 package ru.inno.lessons.exam1.task2;
 
-import java.time.Clock;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+
 
 public class Task2 {
     public static void main(String[] args) throws InterruptedException {
