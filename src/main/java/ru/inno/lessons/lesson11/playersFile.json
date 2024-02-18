@@ -16,5 +16,53 @@
     "nick": "WinMaster_1",
     "points": 0,
     "online": true
+  },
+  {
+    "id": 3,
+    "nick": "WinMaster_11",
+    "points": 100,
+    "online": true
+  },
+  {
+    "id": 4,
+    "nick": "WinMaster_1",
+    "points": 0,
+    "online": true
+  },
+  {
+    "id": 5,
+    "nick": "WinMaster_11",
+    "points": 100,
+    "online": true
+  },
+  {
+    "id": 6,
+    "nick": "WinMaster_1",
+    "points": 0,
+    "online": true
+  },
+  {
+    "id": 7,
+    "nick": "WinMaster_11",
+    "points": 100,
+    "online": true
+  },
+  {
+    "id": 8,
+    "nick": "WinMaster_1",
+    "points": 0,
+    "online": true
+  },
+  {
+    "id": 9,
+    "nick": "WinMaster_11",
+    "points": 100,
+    "online": true
+  },
+  {
+    "id": 10,
+    "nick": "WinMaster_1",
+    "points": 0,
+    "online": true
   }
 ]

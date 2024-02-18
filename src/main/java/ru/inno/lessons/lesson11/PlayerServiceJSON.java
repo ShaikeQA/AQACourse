@@ -23,7 +23,8 @@ public class PlayerServiceJSON implements PlayerService {
                 return player;
             }
         }
-        throw new NoSuchElementException("Игрока не существует c ID: " + id);
+        System.out.println("Игрока не существует");
+        return null;
     }
 
     @Override

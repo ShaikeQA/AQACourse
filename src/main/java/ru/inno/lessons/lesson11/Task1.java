@@ -12,6 +12,7 @@ public class Task1 {
     public static void main(String[] args) throws IOException {
 
         PlayerService service = new PlayerServiceJSON();
+
         int playerId1 = service.createPlayer("WinMaster_11");
         service.createPlayer("WinMaster_1");
         int playerId2 = service.createPlayer("WinMaster_116");
